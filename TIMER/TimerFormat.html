@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="TimerStyles.css">
+    <title>Timer with Progress Indicator</title>
+</head>
+<body>
+    <form>
+        <label for="hours">Hours:</label><br>
+        <input type="number" id="hours"><br>        
+        <label for="minutes">Minutes:</label><br>
+        <input type="number" id="minutes"><br>
+        <label for="seconds">Seconds:</label><br>
+        <input type="number" id="seconds"><br>
+        <button onclick="startTimer()">Start Timer</button>
+    </form>
+
+    <div class="main-container center">
+        <div class="circle-container center">
+            <div class="semicircle"></div>
+            <div class="semicircle"></div>
+            <div class="semicircle"></div>
+            <div class="outermost-circle"></div>
+        </div>
+        <div class="timer-container center">
+            <div class="timer center"></div>
+        </div>
+    </div>
+
+    <script src ="Counter.js"></script>
+</body>
+</html>

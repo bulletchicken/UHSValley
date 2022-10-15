@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+html{
+    font-family: 'Trebuchet', sans-serif;
+    color: #088b8b;
+}
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main-container{
+    width: 100%;
+    height:100vh;
+    background-color: white;
+
+}
+
+.circle-container{
+    width: 400px;
+    height: 400px;
+    background-color: #DDD;
+    border-radius: 50%;
+    position: absolute;
+    overflow: hidden;
+    z-index: 1;
+}
+.semicircle{
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: right center;
+}
+.semicircle:nth-child(1){
+    background-color:#088b8b;
+    z-index: 2;
+}
+.semicircle:nth-child(2){
+    background-color:#088b8b;
+    z-index: 3;
+}
+.semicircle:nth-child(3){
+    background-color:#DDD;
+    z-index: 4;
+}
+
+.outermost-circle{
+    width: 390px;
+    height: 390px;
+    background: white;
+    border-radius: 50%;
+    z-index: 5;
+}
+
+/*.main-container:hover .semicircle:nth-child(1){
+    transform: rotate(180deg);
+    transition: 1s linear;
+}
+.main-container:hover .semicircle:nth-child(2){
+    transform: rotate(360deg);
+    transition: 2s linear;
+}
+.main-container:hover .semicircle:nth-child(3){
+    opacity: 0;
+    transition: opacity 0s 1s;
+}*/
+.timer-container{
+    width: 330px;
+    height: 200px;
+    z-index: 6;
+}
+.timer{
+    width: 400px;
+    height: 100px;
+    z-index: 7;
+}
+.timer div{
+    font-size: 70px;
+    font-weight: 100;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px 0 10px;
+}
+
+.timer .colon{
+    background-color: transparent;
+    width: 10px;
+    margin-left: 0;
+    margin-right: 0;
+    padding-bottom: 15px;
+}
