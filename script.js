@@ -1,6 +1,18 @@
 const video = document.getElementById('video')
 var audio = new Audio('youAng.mp3')
 
+
+/*
+var sad1 = new Audio('sad1')
+var sad2 = new Audio('sad2')
+
+var happy1 = new Audio('happy1')
+var happy2 = new Audio('happy2')
+
+var angry1 = new Audio('angry1')
+var angry2 = new Audio('angry2')
+*/
+
 Promise.all([
   faceapi.nets.tinyFaceDetector.loadFromUri('/models'),
   faceapi.nets.faceLandmark68Net.loadFromUri('/models'),
@@ -41,8 +53,14 @@ video.addEventListener('play', () => {
     document.getElementById("angry").innerHTML = "%" + angerprob + " angry";
     document.getElementById("happy").innerHTML = "%" + happyprob + " happy";
     document.getElementById("sad").innerHTML = "%" + sadprob + " sad";
-    if(angerprob>0.7){
+    if(angerprob>70){
       audio.play()
+    }
+    if(happyprob>70){
+
+    }
+    if(sadprob>70){
+
     }
     
     faceapi.draw.drawDetections(canvas, resizedDetections)

@@ -1,0 +1,99 @@
+*{
+    font-family: 'Trebuchet', sans-serif;
+}
+#video{
+    margin-left:5%;
+    margin-top:-10%;
+}
+#stack{
+    margin-top:10%;
+}
+.button1{
+    margin-left:10%;
+    margin-right:10%;
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    font-weight: 500;
+    border-radius: 3px;
+    padding: 0 16px;
+    border-radius: 20px;
+    color: #fff;
+    background: #6200ee;
+    line-height: 1.15;
+    
+    height: 100px;
+    word-spacing: 0px;
+    letter-spacing: .0892857143em;
+    text-decoration: none;
+    text-transform: uppercase;
+    min-width: 250px;
+    border: none;
+    text-align: center;
+    font-size: 20px;
+    box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+    transition: background 280ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button1:hover {
+    background: #fff;
+    color:#6200ee;
+    box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+}
+.button2{
+    
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    font-weight: 500;
+    padding: 0 15px;
+    border-radius: 20px;
+    color: #6200ee;
+    background: transparent;
+    line-height: 1.15;
+    font-size: 20px;
+    margin-top:3%;
+    margin-left:10%;
+    height: 100px;
+    word-spacing: 0px;
+    letter-spacing: .0892857143em;
+    text-decoration: none;
+    text-transform: uppercase;
+    min-width: 250px;
+    border: 2px solid #6200ee;
+    text-align: center;
+    transition: background 280ms cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+}
+
+.button2:hover {
+    background: #6200ee;
+    color: #fff;
+    
+ }
+
+.navbar {
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height:20%;
+}
+
+.word{
+    margin-top: 2%;
+    margin-left:5%;
+}
+  
+.navbar a {
+    
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 20px 16px;
+    text-decoration: none;
+    font-size: 40px;
+}

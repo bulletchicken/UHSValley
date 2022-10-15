@@ -13,23 +13,31 @@
       width: 100vw;
       height: 100vh;
       display: flex;
-      justify-content: center;
+      justify-content: left;
       align-items: center;
     }
 
     canvas {
+      margin-left:5%;
+      margin-top:-10%;
       position: absolute;
     }
   </style>
 </head>
 <body>
-  <button onclick="startVideo()">start</button>
+  
   <video id="video" width="720" height="560" autoplay muted></video>
-  <button onclick="stopVideoButton()">stop</button>
-  <div id = stats>
-    <div id = angry>placeholder</div>
-    <div id = happy>placeholder</div>
-    <div id = sad>placeholder</div>
+  
+  <div id = "stack">
+    <button class = "button1" onclick="startVideo()">start</button>
+    <button class = "button2" onclick ="stopVideoButton()">stop</button>
+  </div>
+  
+  
+  <div class = "navbar">
+    <a class = "word" id = "angry">Anger %</a>
+    <a class = "word" id = "happy">Happiness %</a>
+    <a class = "word" id = "sad">Sadness %</a>
   </div>
 
   <script defer src="script.js"></script>
