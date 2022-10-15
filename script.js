@@ -1,5 +1,25 @@
 const video = document.getElementById('video')
-var audio = new Audio('youAng.mp3')
+
+//happy: 3, 8, 10, 11
+//sad: 1, 2
+//angry: 4, 5, 6, 7, 8, 9
+
+
+var happy3 = new Audio('voicelines/University of Toronto - Scarborough 3.m4a')
+var happy8 = new Audio('voicelines/University of Toronto - Scarborough 8.m4a')
+var happy10 = new Audio('voicelines/University of Toronto - Scarborough 10.m4a')
+var happy11 = new Audio('voicelines/University of Toronto - Scarborough 11.m4a')
+
+var sad1 = new Audio('voicelines/University of Toronto - Scarborough 1.m4a')
+var sad2 = new Audio('voicelines/University of Toronto - Scarborough 2.m4a')
+
+var angry4 = new Audio('voicelines/University of Toronto - Scarborough 4.m4a')
+var angry5 = new Audio('voicelines/University of Toronto - Scarborough 5.m4a')
+var angry6 = new Audio('voicelines/University of Toronto - Scarborough 6.m4a')
+var angry7 = new Audio('voicelines/University of Toronto - Scarborough 7.m4a')
+var angry8 = new Audio('voicelines/University of Toronto - Scarborough 8.m4a')
+var angry9 = new Audio('voicelines/University of Toronto - Scarborough 9.m4a')
+
 
 
 /*
@@ -19,6 +39,7 @@ Promise.all([
   faceapi.nets.faceRecognitionNet.loadFromUri('/models'),
   faceapi.nets.faceExpressionNet.loadFromUri('/models')
 ])
+
 
 function startVideo() {
   navigator.getUserMedia(
@@ -53,14 +74,51 @@ video.addEventListener('play', () => {
     document.getElementById("angry").innerHTML = "%" + angerprob + " angry";
     document.getElementById("happy").innerHTML = "%" + happyprob + " happy";
     document.getElementById("sad").innerHTML = "%" + sadprob + " sad";
-    if(angerprob>70){
-      audio.play()
+    
+//happy: 3, 8, 10, 11
+//sad: 1, 2
+//angry: 4, 5, 6, 7, 8, 9
+    
+    if(angerprob>85){
+      let x = Math.floor(Math.random()*6)
+      if(x==0){
+        angry4.playNext();
+      } else if(x==1){
+        angry5.playNext();
+      } else if(x==2){
+        angry6.play();
+      } else if(x==3){
+        angry7.play();
+      } else if(x==4){
+        angry8.play();
+      } else if(x==5){
+        angry9.play();
+      }
+      await sleep(5000)
     }
-    if(happyprob>70){
 
+    if(happyprob>85){
+      let x = Math.floor(Math.random()*4)
+      if(x==0){
+        happy3.play();
+      }else if(x==1){
+        happy8.play();
+      } else if(x==2){
+        happy10.play();
+      } else if(x==3){
+        happy11.play();
+      }
+      await sleep(5000)
     }
-    if(sadprob>70){
 
+    if(sadprob>85){
+      let x = Math.floor(Math.random()*2)
+      if(x==0){
+        sad1.play();
+      } else {
+        sad2.play();
+      }
+      await sleep(5000)
     }
     
     faceapi.draw.drawDetections(canvas, resizedDetections)
