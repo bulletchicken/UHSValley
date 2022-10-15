@@ -4,13 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Face</title>
+  <link rel="stylesheet" href="style.css">
   <script defer src="face-api.min.js"></script>
-  <script defer src="script.js"></script>
+  
   <style>
     body {
-      margin: 0;
-      padding: 0;
       width: 100vw;
       height: 100vh;
       display: flex;
@@ -25,8 +24,14 @@
 </head>
 <body>
   <button onclick="startVideo()">start</button>
-  
   <video id="video" width="720" height="560" autoplay muted></video>
   <button onclick="stopVideoButton()">stop</button>
+  <div id = stats>
+    <div id = angry>placeholder</div>
+    <div id = happy>placeholder</div>
+    <div id = sad>placeholder</div>
+  </div>
+
+  <script defer src="script.js"></script>
 </body>
 </html>

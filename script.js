@@ -1,6 +1,5 @@
 const video = document.getElementById('video')
 var audio = new Audio('youAng.mp3')
-const angy = document.getElementById("angry");
 
 Promise.all([
   faceapi.nets.tinyFaceDetector.loadFromUri('/models'),
@@ -15,8 +14,8 @@ function startVideo() {
     stream => video.srcObject = stream,
     err => console.error(err)
   )
-  window.open("stats.html", "statistics", "height=200,width=200")
   
+  //window.open("stats.html", "statistics", "height=200,width=200")
 }
 
 function stopVideoButton(){
@@ -33,19 +32,20 @@ video.addEventListener('play', () => {
     const resizedDetections = faceapi.resizeResults(detections, displaySize)
     canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height)
 
-
-
-    console.log(detections["0"]["expressions"])
-
     //angry, disgusted, fearful, happy, neutral, sad, surprised
-    const angerprob = (detections["0"]["expressions"]["angry"])
-    console.log(angerprob);
-    //angy.innerHTML = angerprob;
+    const angerprob = Math.round(Math.max( (detections["0"]["expressions"]["angry"]), (detections["0"]["expressions"]["disgusted"]))*1000)/10
+    const happyprob = Math.round((detections["0"]["expressions"]["happy"]) *1000)/10
+    const sadprob = Math.round((detections["0"]["expressions"]["sad"])*1000)/10
+
+
+    document.getElementById("angry").innerHTML = "%" + angerprob + " angry";
+    document.getElementById("happy").innerHTML = "%" + happyprob + " happy";
+    document.getElementById("sad").innerHTML = "%" + sadprob + " sad";
     if(angerprob>0.7){
       audio.play()
     }
-
+    
     faceapi.draw.drawDetections(canvas, resizedDetections)
     faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
-  }, 100)
+  }, 500)
 })
