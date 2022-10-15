@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Face</title>
+  <link rel="stylesheet" href="recordings.css">
+  <script defer src="face-api.min.js"></script>
+  
+  <style>
+    body {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: left;
+      align-items: center;
+    }
+
+    canvas {
+      margin-left:5%;
+      margin-top:-10%;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+  
+  <video id="video" width="720" height="560" autoplay muted></video>
+  
+  <div id = "stack">
+    <button class = "button1" onclick="startVideo()">start</button>
+    <button class = "button2" onclick ="stopVideoButton()">stop</button>
+  </div>
+  
+  
+  <div class = "navbar">
+    <a class = "word" id = "angry">Anger %</a>
+    <a class = "word" id = "happy">Happiness %</a>
+    <a class = "word" id = "sad">Sadness %</a>
+  </div>
+
+  <script defer src="script.js"></script>
+</body>
+</html>
