@@ -1,26 +1,19 @@
 const semicircles = document.querySelectorAll('.semicircle');
 const timer = document.querySelector('.timer');
 
-let futureTime;
-let timerLoop
-let hr = document.getElementById("hours");
-let min = document.getElementById("minutes");
-let sec = document.getElementById("seconds");
+const hr = 0;
+const min = 0;
+const sec = 15;
 
-function startTimer(){
-    console.log(hr);
-    console.log(min);
-    console.log(sec);
-    
-    const hours = hr * 3600000;
-    const minutes = min * 60000;
-    const seconds = sec * 1000;
-    const setTime = hours + minutes + seconds;
-    const starTime = Date.now();
-    futureTime = starTime + setTime;
-    timerLoop = setInterval(countDownTimer());
-    setInterval();
-}
+const hours = hr * 3600000;
+const minutes = min * 60000;
+const seconds = sec * 1000;
+const setTime = hours + minutes + seconds;
+const starTime = Date.now();
+const futureTime = starTime + setTime;
+
+const timerLoop = setInterval(countDownTimer);
+countDownTimer();
 
 function countDownTimer(){
     const currentTime = Date.now();
@@ -36,9 +29,6 @@ function countDownTimer(){
         semicircles[0].style.transform = `rotate(${angle}deg)`;
         semicircles[1].style.transform = `rotate(${angle}deg)`;
     }
-
-    console.log(`${setTime}`);
-
     const hrs = Math.floor((remainingTime/(3600000))%24).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false});
     const mins = Math.floor((remainingTime/(60000))%60).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false});
     const secs = Math.floor((remainingTime/(1000))%60).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false});
