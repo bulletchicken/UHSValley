@@ -12,7 +12,7 @@ var happy8 = new Audio('voicelines/University of Toronto - Scarborough 8.m4a')
 var happy10 = new Audio('voicelines/University of Toronto - Scarborough 10.m4a')
 var happy11 = new Audio('voicelines/University of Toronto - Scarborough 11.m4a')
 
-var sad1 = new Audio('voicelines/University of Toronto - Scarborough 1.m4a')
+var sad1 = new Audio('voicelines/University of Toronto - Scarborough.m4a')
 var sad2 = new Audio('voicelines/University of Toronto - Scarborough 2.m4a')
 
 var angry4 = new Audio('voicelines/University of Toronto - Scarborough 4.m4a')
@@ -43,7 +43,7 @@ Promise.all([
   faceapi.nets.faceExpressionNet.loadFromUri('/models')
 ])
 
-
+//0,0 beep boop beep
 function startVideo() {
   navigator.getUserMedia(
     { video: {} },
@@ -109,44 +109,43 @@ video.addEventListener('play', () => {
     
 
 
-    if(angerprob>80){
+    if(angerprob>75){
       //var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
       //window.locat-ion.href=image;
-      
-      html2canvas(document.body).then((canvas) => {
-        let a = document.createElement("a");
-        a.download = "ss.png";
-        a.href = canvas.toDataURL("image/png");
-        a.click();
-      });
-      
-
-      capture();
 
       let x = Math.floor(Math.random()*6)
-      if(x==0){
-        angry4.play();
-      } else if(x==1){
-        angry5.play();
-      } else if(x==2){
-        angry6.play();
-      } else if(x==3){
-        angry7.play();
-      } else if(x==4){
-        angry8.play();
-      } else if(x==5){
-        angry9.play();
-      }
 
-      
+      const allAngry = [angry4, angry5, angry6, angry7, angry8, angry9]
+      setTimeout(allAngry[x].play(), 3000)
+
+      /*
+      if(x==0){
+        setTimeout(angry4.play(), 5000);
+      } else if(x==1){
+        setTimeout(angry5.play(), 5000);
+      } else if(x==2){
+        setTimeout(angry6.play(), 5000);
+      } else if(x==3){
+        setTimeout(angry7.play(), 5000);
+      } else if(x==4){
+        setTimeout(angry8.play(), 5000);
+      } else if(x==5){
+        setTimeout(angry9.play(), 5000);
+      }
+      */
 
     }
 
-    if(happyprob>90){
-
+    else if(happyprob>90){
+      
       //download canvas OR take a pic with webcam somehow
       let x = Math.floor(Math.random()*4)
+      console.log(x);
+      const allHappy = [happy3, happy8, happy10, happy11]
+      
+      setTimeout(allHappy[x].play(), 3000)
 
+      /*
       console.log(x);
       if(x==0){
         happy3.play();
@@ -157,18 +156,19 @@ video.addEventListener('play', () => {
       } else if(x==3){
         happy11.play();
       }
+      */
     }
 
-    if(sadprob>90){
-      let x = Math.floor(Math.random()*3)
-      if(x==0){
-        sad1.play();
+    else if(sadprob>70){
+      let x = Math.floor(Math.random()*10)
+      if(x%2==0){
+        setTimeout(sad1.play(), 3000);
       } else {
-        sad2.play();
+        setTimeout(sad2.play(), 3000);
       }
     }
     
     faceapi.draw.drawDetections(canvas, resizedDetections)
     faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
-  }, 500)
+  }, 200)
 })

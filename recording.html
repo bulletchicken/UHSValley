@@ -8,14 +8,7 @@
   <link rel="stylesheet" href="recordings.css">
   <link rel="stylesheet" href="style.css">
   <script defer src="face-api.min.js"></script>
-  <nav>
-    <div class="logo">YourHP</div>
-    <div class="nav-items"> 
-        <a href="index.html"> Home</a>
-        <a href="recording.html">Face Tracker</a>
-        <a href="TimerFormat.html">Timer</a>
-    </div>
-</nav>
+
   <style>
     body {
       width: 100vw;
@@ -27,19 +20,29 @@
 
     canvas {
       margin-left:5%;
-      margin-top:-10%;
+      margin-top:-5%;
       position: absolute;
     }
   </style>
+  
 </head>
 <body>
-  
+
   <video id="video" width="720" height="560" autoplay muted></video>
   
   <div id = "stack">
     <button class = "button1" onclick="startVideo()">start</button>
     <button class = "button2" onclick ="stopVideoButton()">stop</button>
   </div>
+
+  <nav>
+    <div class="logo">YourHP</div>
+    <div class="nav-items"> 
+        <a href="index.html"> Home</a>
+        <a href="recording.html">Face Tracker</a>
+        <a href="TimerFormat.html">Timer</a>
+    </div>
+</nav>
   
   
   <div class = "navbar">
