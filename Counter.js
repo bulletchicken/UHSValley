@@ -4,6 +4,7 @@ const timer = document.querySelector('.timer');
 const hr = 0;
 const min = 0;
 const sec = 15;
+var bell = new Audio('voicelines/Bell sound effect.mp3')
 
 const hours = hr * 3600000;
 const minutes = min * 60000;
@@ -47,7 +48,7 @@ function countDownTimer(){
         timer.style.color = "red";
     }
 
-    if(remainingTime < 0){
+    if(remainingTime <= 0){
         clearInterval(timerLoop);
         semicircles[0].style.display = 'none';
         semicircles[1].style.display = 'none';
@@ -60,7 +61,9 @@ function countDownTimer(){
         <div class="colon">:</div>
         <div>00</div>
         `
-
+        bell.play();
         timer.style.color = "lightgray";
+    
+
     }
 }
