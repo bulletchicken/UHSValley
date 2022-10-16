@@ -57,14 +57,13 @@ nav {
     background: #ffb6c1;
     line-height: 1.15;
     margin-bottom:5%;
-
     
     height: 100px;
     word-spacing: 0px;
     letter-spacing: .0892857143em;
     text-decoration: none;
     text-transform: uppercase;
-    min-width: 250px;
+    min-width: 200%;
     border: none;
     text-align: center;
     font-size: 20px;
@@ -92,13 +91,13 @@ nav {
     font-size: 20px;
     margin-top:10%;
     margin-left:10%;
-    margin-bottom:80%;
+    margin-bottom:110%;
     height: 100px;
     word-spacing: 0px;
     letter-spacing: .0892857143em;
     text-decoration: none;
     text-transform: uppercase;
-    min-width: 100%;
+    min-width: 200%;
     border: 2px solid #ffb6c1;
     text-align: center;
     transition: background 280ms cubic-bezier(0.4, 0, 0.2, 1);
