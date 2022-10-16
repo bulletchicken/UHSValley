@@ -43,7 +43,7 @@ Promise.all([
   faceapi.nets.faceExpressionNet.loadFromUri('/models')
 ])
 
-
+//0,0 beep boop beep
 function startVideo() {
   navigator.getUserMedia(
     { video: {} },
