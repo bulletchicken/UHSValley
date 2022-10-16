@@ -33,6 +33,7 @@ var angry1 = new Audio('angry1')
 var angry2 = new Audio('angry2')
 */
 
+
 Promise.all([
   faceapi.nets.tinyFaceDetector.loadFromUri('/models'),
   faceapi.nets.faceLandmark68Net.loadFromUri('/models'),
@@ -54,6 +55,31 @@ function startVideo() {
 function stopVideoButton(){
   location.reload(); //simply just reloads page
 };
+
+
+const capture = async () => {
+  const canvas = document.createElement("canvas");
+  const context = canvas.getContext("2d");
+  const video = document.createElement("video");
+
+  try {
+    const captureStream = await navigator.mediaDevices.getDisplayMedia();
+    video.srcObject = captureStream;
+    context.drawImage(video, 0, 0, window.width, window.height);
+    const frame = canvas.toDataURL("image/png");
+    captureStream.getTracks().forEach(track => track.stop());
+    window.location.href = frame;
+  } catch (err) {
+    console.error("Error: " + err);
+  }
+};
+
+var download = function(){
+  var link = document.createElement('a');
+  link.download = 'filename.png';
+  link.href = document.getElementById('canvas').toDataURL()
+  link.click();
+}
 
 video.addEventListener('play', () => {
   const canvas = faceapi.createCanvasFromMedia(video)
@@ -79,12 +105,19 @@ video.addEventListener('play', () => {
 //sad: 1, 2
 //angry: 4, 5, 6, 7, 8, 9
     
-    if(angerprob>85){
+
+
+    if(angerprob>80){
+      //var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+      //window.locat-ion.href=image;
+      
+      capture();
+
       let x = Math.floor(Math.random()*6)
       if(x==0){
-        angry4.playNext();
+        angry4.play();
       } else if(x==1){
-        angry5.playNext();
+        angry5.play();
       } else if(x==2){
         angry6.play();
       } else if(x==3){
@@ -94,11 +127,15 @@ video.addEventListener('play', () => {
       } else if(x==5){
         angry9.play();
       }
-      await sleep(5000)
+
     }
 
-    if(happyprob>85){
+    if(happyprob>90){
+
+      //download canvas OR take a pic with webcam somehow
       let x = Math.floor(Math.random()*4)
+
+      console.log(x);
       if(x==0){
         happy3.play();
       }else if(x==1){
@@ -108,17 +145,15 @@ video.addEventListener('play', () => {
       } else if(x==3){
         happy11.play();
       }
-      await sleep(5000)
     }
 
-    if(sadprob>85){
-      let x = Math.floor(Math.random()*2)
+    if(sadprob>90){
+      let x = Math.floor(Math.random()*3)
       if(x==0){
         sad1.play();
       } else {
         sad2.play();
       }
-      await sleep(5000)
     }
     
     faceapi.draw.drawDetections(canvas, resizedDetections)
