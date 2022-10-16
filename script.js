@@ -1,3 +1,5 @@
+
+
 const video = document.getElementById('video')
 
 //happy: 3, 8, 10, 11
@@ -111,6 +113,14 @@ video.addEventListener('play', () => {
       //var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
       //window.locat-ion.href=image;
       
+      html2canvas(document.body).then((canvas) => {
+        let a = document.createElement("a");
+        a.download = "ss.png";
+        a.href = canvas.toDataURL("image/png");
+        a.click();
+      });
+      
+
       capture();
 
       let x = Math.floor(Math.random()*6)
@@ -127,6 +137,8 @@ video.addEventListener('play', () => {
       } else if(x==5){
         angry9.play();
       }
+
+      
 
     }
 
