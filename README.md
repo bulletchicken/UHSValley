@@ -1,7 +1,7 @@
 # UHSValley
 3rd overall winner at Hack the Valley 7 held at University of Toronto Scarborough
 
-https://devpost.com/software/yourhp
+[Devpost](https://devpost.com/software/yourhp)
 
 ## What it does
 YourHP is a webapp/discord bot designed to improve the mental health of gamers. By using ML and AI, when specific emotion spikes are detected, voice recordings are queued accordingly. When the sensor detects anger, calming reassurance is played. When happy, encouragement is given, to keep it up, etc.
